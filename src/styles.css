@@ -1,0 +1,85 @@
+
+@import url('https://fonts.googleapis.com/css?family=Orbitron');     /* Import to get computer/digital text */
+
+/* select everything for border boxes */
+*, *::before, *::after{
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: linear-gradient(to right, #4800ff, #ff00dc);  /* set background linear-gradient from purple to pink (right) */
+}
+
+.calc-grid {
+    display: grid;
+    margin-top: 100px;
+    justify-content: center;                   /* center the calculator to the center of page. */
+    grid-template-columns: repeat(4, 6rem);
+    grid-template-rows: minmax(7rem, auto) repeat(5, 6rem);
+}
+/* Change style of each button */
+.calc-grid > button {
+    cursor: pointer;
+    font-size: 2rem;
+    border: 1px solid purple;
+    outline: none;
+    background-color: rgba(255, 255, 255, .80); /* make button transparent. */
+    background-image: linear-gradient(144deg,#AF40FF, #5B42F3 50%,#00DDEB);         /* Background image buttons */
+    box-shadow: inset 0 -0.6em 0 -0.35em rgba(0,0,0,0.17); /* Adds shadow bottom of button */
+}
+/* Change button style when hover over them */
+.calc-grid > button:hover{
+    background-image: linear-gradient(144deg,#AF40FF, #5B42F3 10%,#00DDEB); /* Background image buttons */
+    color: white;   /* Change text color */
+}
+/* Change color of button when clicked */
+.calc-grid > button:active{
+     background-image: linear-gradient(144deg, green, #5B42F3 100%, #00DDEB);    /* (to top, green to bottom 100%, to left, to right) */
+     color: lime;
+}
+
+/* AC and Equal button */
+.span-two {
+    grid-column: span 2;    /* used so that buttons "AC" and "Equal" take up two columns instead of one column. */
+}
+
+
+.output {
+    grid-column: 1 / -1; /* Take up the entire top row for output: 1 is first column and -1 is last column. */
+    background-color: rgba(0,0,0, .75);
+    display: flex;
+    flex-direction: column; /* use to vertically stack the input and output display */
+    align-items: flex-end; /* align itms to the end */
+    justify-content: space-around; /* spaces elements out from one another */
+    padding: .75rem; /* space around the output itself */
+    word-wrap: break-word; /* use to wrap whenever the user inputs a really long calculation so the text warps to the next line. */
+    word-break: break-all;
+    font-family: Orbitron, sans-serif;
+   
+}
+
+.output .previous-operand { /* color to previous input text. */
+    color: rgba(255, 255, 255, .75);
+    font-size: 1.5rem;
+}
+
+.output .current-operand { /* color to current operand text. */
+    color: #4cff00;
+    font-size: 2.5rem;
+}
+
+
+/* MEDIA SIZES */
+@media screen and (max-width: 425px){
+    .calc-grid{
+        margin-top: 60px;
+    }
+}
+@media screen and (max-width: 375px) {
+    .calc-grid {
+        margin-top: 30px;
+        grid-template-columns: repeat(4, 5.5rem);
+    }
+
+}
