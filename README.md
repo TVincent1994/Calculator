@@ -1,3 +1,5 @@
+![](Website_Img/Website.PNG)
+
 # Calculator
 
 A simple calculator built in React, HTMl and CSS.
